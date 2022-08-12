@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { ShoppingCart, Trash, IconProps } from 'phosphor-react'
+import { ShoppingCart, Trash } from 'phosphor-react'
 
 const Button = styled("button")`
   display: flex;
@@ -28,30 +28,41 @@ export const ButtonLabel = styled(Button)`
     background: ${props => props.theme['yellow-dark']};
   }
 `
-
-export const ButtonCart = styled(Button).attrs(() => ({
-  children: <ShoppingCart weight='fill' size={20} />
-}))`
-  background: ${props => props.theme['yellow-light']};
-  color: ${props => props.theme['yellow-dark']};
-
-  &:hover{
-    background: ${props => props.theme['yellow-light']};
-  }
-`
-
-
-
-const RemoveButtonContent = (props: IconProps) => (
+const RemoveButtonChildren = (color: string) => (
   <>
-    <Trash {...props} />
+    <Trash size={20} color={color} weight='bold' />
     REMOVER
   </>
 )
+
 export const RemoveButton = styled(Button).attrs((props) => ({
-  children: <RemoveButtonContent size={20} color={props.theme.purple} weight='bold' />
+  children: RemoveButtonChildren(props.theme.purple)
 }))`
   &:hover{
     color: ${props => props.theme['base-subtitle']}
   }
 `
+
+const ButtonCartChildren = <ShoppingCart weight='fill' size={20} />
+
+export const ButtonCart = styled(Button).attrs(() => ({
+  children: ButtonCartChildren
+}))`
+  background: ${props => props.theme['yellow-light']};
+  color: ${props => props.theme['yellow-dark']};
+
+  &:hover{
+    filter: brightness(0.95);
+  }
+`
+export const ButtonAddToCart = styled(Button).attrs(() => ({
+  children: ButtonCartChildren
+}))`
+  background: ${props => props.theme['purple-dark']};
+  color: ${props => props.theme['base-card']};
+
+  &:hover{
+    background: ${props => props.theme['purple']};
+  }
+`
+
