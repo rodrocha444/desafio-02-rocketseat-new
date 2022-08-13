@@ -1,18 +1,21 @@
-import { IconProps } from "phosphor-react";
+import { ReactElement } from "react";
 import { SelectOptionContainer } from "./styles";
 
 
 interface SelectOptionProps {
   selected: boolean
   textContent: string
-  icon: React.ForwardRefExoticComponent<IconProps & React.RefAttributes<SVGSVGElement>>
+  icon: ReactElement
+  onClick: () => void
 }
 
-export function SelectOption({ selected, textContent, icon }: SelectOptionProps) {
+export function SelectOption({ selected, textContent, icon, onClick }: SelectOptionProps) {
   return (
-    <SelectOptionContainer selected={selected}>
+    <SelectOptionContainer selected={selected} onClick={onClick}>
       <>
-        {icon}
+        <span>
+          {icon}
+        </span>
         {textContent}
       </>
     </SelectOptionContainer>
