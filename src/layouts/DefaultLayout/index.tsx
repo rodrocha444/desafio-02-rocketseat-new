@@ -1,8 +1,10 @@
 import { MapPin } from 'phosphor-react'
+import { Outlet } from 'react-router-dom';
 
 import { ButtonCart } from '../../components/Buttons'
-import { Header, MainContainer } from "./styles";
-import CoffeDeliveryLogo from '../../assets/coffe-delivery-logo.svg';
+
+import { Content, Header, MainContainer } from "./styles"
+import CoffeDeliveryLogo from '../../assets/coffe-delivery-logo.svg'
 
 export function DefaultLayout() {
   return (
@@ -18,6 +20,11 @@ export function DefaultLayout() {
           <ButtonCart />
         </nav>
       </Header>
+
+      <Content>
+        <Outlet />
+      </Content>
+
     </MainContainer>
   )
 }

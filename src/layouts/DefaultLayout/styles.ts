@@ -36,3 +36,9 @@ export const Header = styled.header`
     gap: .75rem;
   }
 `
+
+export const Content = styled.main`
+  max-width: 1130px;
+  margin: auto;
+  padding: 0rem 1rem;
+`
