@@ -37,20 +37,33 @@ export const FeaturesDiv = styled.div`
   margin-top: 4.125rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  row-gap: 1.25rem;
 
-  & .icon{
-    padding: 8px;
-    background-color: red;
-    color: ${props => props.theme.white};
-    border-radius: 999px;
+  & > div{
+    display: flex;
+    align-items: center;
   }
+  & strong{
+    line-height: 130%;
 
-  & > div {
-    
+    color: ${props=>props.theme["base-text"]};
   }
 `
 
 export const Icon = styled.span<IconProps>`
-  display: flex;
-  align-items: center;
+  display: inline-block;
+  margin-right: 0.75rem;
+  
+  border-radius: 100%;
+  padding: 8px;
+  line-height: 1; 
+  
+  color: ${props => props.theme.white};
+  background: ${props => props.theme[props.backgroundColor]};
+`
+
+export const CoffesMenuContainer = styled.section`
+  & h1{
+    margin-bottom: 3.375rem;
+  }
 `
