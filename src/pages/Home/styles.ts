@@ -10,7 +10,7 @@ interface IconProps {
 export const CoverContainer = styled.section`
   display: flex;
   align-items: center;
-  padding-top: 5.875rem;
+  padding: 5.875rem 0;
   gap: 3.5rem;
 `
 
@@ -46,7 +46,7 @@ export const FeaturesDiv = styled.div`
   & strong{
     line-height: 130%;
 
-    color: ${props=>props.theme["base-text"]};
+    color: ${props => props.theme["base-text"]};
   }
 `
 
@@ -63,7 +63,22 @@ export const Icon = styled.span<IconProps>`
 `
 
 export const CoffesMenuContainer = styled.section`
-  & h1{
-    margin-bottom: 3.375rem;
+  margin-bottom: 5rem;
+  
+  & .coffes{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 2.5rem;
   }
+`
+
+export const H2 = styled.h2`
+  font-family: 'Baloo 2';
+  font-weight: 800;
+  font-size: 2rem;
+  line-height: 130%;
+
+  margin-bottom: 3.375rem;
+
+  color: ${props => props.theme["base-subtitle"]};
 `

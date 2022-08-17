@@ -1,4 +1,4 @@
-import { IconProps, Minus, Plus } from 'phosphor-react'
+import { Minus, Plus } from 'phosphor-react'
 import styled from 'styled-components'
 
 export const SelectContainer = styled("div")`
@@ -7,7 +7,9 @@ export const SelectContainer = styled("div")`
   align-items: center;
   width: min-content;
   padding: 0.375rem 0.5rem;
-  gap: 0.25rem;
+  gap: 0.5rem;
+
+  user-select: none;
 
   background: ${props => props.theme['base-button']};
   border-radius: 6px;

@@ -1,28 +1,45 @@
+import NumberFormat from 'react-number-format'
+
 import { ButtonAddToCart } from "../../../../components/Buttons";
 import { Select } from "../../../../components/Select";
 import { CoffeContainer, Subtitle, Title } from "./styles";
 
+type tags = 'tradicional' | 'com leite' | 'especial' | 'alcoólico' | 'gelado';
 interface CoffeProps {
-  imgSrc: string;
+  imgSrc: string
+  tags: tags[]
+  title: string
+  description: string
 }
 
-export function Coffe({ imgSrc }: CoffeProps) {
+export function Coffe({ imgSrc, tags, title, description }: CoffeProps) {
   return (
     <CoffeContainer>
       <img src={imgSrc} alt="Imagem ilustrativa do Café" />
 
       <div className="tags">
-        <span>TRADICIONAL</span>
-        <span>com leite</span>
+        {tags.map(tag => <span>{tag}</span>)}
       </div>
 
-      <Title>Expresso Tradicional</Title>
-      <Subtitle>O tradicional café feito com água quente e grãos moídos</Subtitle>
+      <Title>{title}</Title>
+      <Subtitle>{description}</Subtitle>
 
       <div className="buy-details">
-        <span>R$ {9.9}</span>
-        <Select counter={1} />
-        <ButtonAddToCart />
+        <div>
+          <span className="prefix">R$ </span>
+          <NumberFormat
+            decimalSeparator=','
+            decimalScale={2}
+            fixedDecimalScale={true}
+            displayType='text'
+            value={9.9}
+            className='value'
+          />
+        </div>
+        <div className='cart-features'>
+          <Select />
+          <ButtonAddToCart />
+        </div>
       </div>
     </CoffeContainer>
   )

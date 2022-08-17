@@ -4,12 +4,12 @@ import CoffeHomeImg from '../../assets/generic-imgs/coffe-home.png'
 import CoffeImage from '../../assets/coffes-imgs/image.png'
 
 import { Coffe } from './components/Coffe'
-import { CoffesMenuContainer, CoverContainer, FeaturesDiv, Icon, Subtitle, Title } from './styles'
+import { CoffesMenuContainer, CoverContainer, FeaturesDiv, H2, Icon, Subtitle, Title } from './styles'
 
 export function Home() {
   return (
     <>
-      {/* <CoverContainer>
+      <CoverContainer>
         <div>
           <Title>Encontre o café perfeito para qualquer hora do dia</Title>
           <Subtitle>Com o Coffee Delivery você recebe seu café onde estiver, a qualquer hora</Subtitle>
@@ -52,12 +52,17 @@ export function Home() {
         </div>
 
         <img src={CoffeHomeImg} alt="Coffe Delivery image simbólica" />
-      </CoverContainer > */}
+      </CoverContainer >
 
       <CoffesMenuContainer>
-        <h1>Nossos Cafés</h1>
+        <H2>Nossos Cafés</H2>
         <div className='coffes'>
-          <Coffe imgSrc={CoffeImage} />
+          <Coffe
+            imgSrc={CoffeImage}
+            tags={['tradicional', 'com leite']}
+            title={'Expresso Tradicional'}
+            description={'O tradicional café feito com água quente e grãos moídos'}
+          />
         </div>
       </CoffesMenuContainer>
     </>
