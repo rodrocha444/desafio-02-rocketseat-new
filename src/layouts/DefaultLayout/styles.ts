@@ -1,6 +1,25 @@
 import styled from 'styled-components'
 
 export const MainContainer = styled("div")`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1rem;
+`
+
+export const Header = styled.header`
+  flex:1;
+  display: flex;
+  justify-content: space-between;
+  max-width: 1130px;
+  width: 100%;
+  padding: 2rem 0;
+
+  & nav{
+    display: flex;
+    gap: .75rem;
+  }
+
   & .logo{
     height: 2.5rem;
   }
@@ -24,21 +43,7 @@ export const MainContainer = styled("div")`
   }
 `
 
-export const Header = styled.header`
-  display: flex;
-  justify-content: space-between;
-  padding: 2rem 1rem;
-  margin: auto;
-  max-width: 1130px;
-
-  & nav{
-    display: flex;
-    gap: .75rem;
-  }
-`
-
 export const Content = styled.main`
   max-width: 1130px;
-  margin: auto;
-  padding: 0rem 1rem;
+  width:100%;
 `

@@ -1,12 +1,20 @@
 import { MapPin } from 'phosphor-react'
-import { Outlet } from 'react-router-dom';
+import { Outlet, useNavigate} from 'react-router-dom';
 
 import { ButtonCart } from '../../components/Buttons'
 
 import { Content, Header, MainContainer } from "./styles"
 import CoffeDeliveryLogo from '../../assets/coffe-delivery-logo.svg'
 
+
+
 export function DefaultLayout() {
+  const navigate = useNavigate();
+  
+  function redirectToCheckout(){
+    navigate('../checkout')
+  }
+
   return (
     <MainContainer>
       <Header>
@@ -17,7 +25,7 @@ export function DefaultLayout() {
             <MapPin weight='fill' size={22} />
             Porto Alegre, RS
           </button>
-          <ButtonCart />
+          <ButtonCart onClick={redirectToCheckout}/>
         </nav>
       </Header>
 

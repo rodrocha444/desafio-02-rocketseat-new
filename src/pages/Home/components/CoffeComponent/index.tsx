@@ -12,13 +12,13 @@ interface CoffeProps {
   description: string
 }
 
-export function Coffe({ imgSrc, tags, title, description }: CoffeProps) {
+export function CoffeComponent({ imgSrc, tags, title, description }: CoffeProps) {
   return (
     <CoffeContainer>
       <img src={imgSrc} alt="Imagem ilustrativa do Café" />
 
       <div className="tags">
-        {tags.map(tag => <span>{tag}</span>)}
+        {tags.map(tag => <span key={tag}>{tag}</span>)}
       </div>
 
       <Title>{title}</Title>
