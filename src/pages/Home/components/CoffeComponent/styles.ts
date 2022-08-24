@@ -81,6 +81,8 @@ export const Subtitle = styled.p`
   font-size: 0.875rem;
   line-height: 130%;
   padding: 0.5rem 0 2rem 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   color: ${props => props.theme["base-label"]};
 `

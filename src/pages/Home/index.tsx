@@ -1,10 +1,11 @@
 import { ShoppingCart, Timer, Package, Coffee } from 'phosphor-react'
 
 import CoffeHomeImg from '../../assets/generic-imgs/coffe-home.png'
-import CoffeImage from '../../assets/coffes-imgs/image.png'
 
 import { CoffeComponent } from './components/CoffeComponent'
 import { CoffesMenuContainer, CoverContainer, FeaturesDiv, H2, Icon, Subtitle, Title } from './styles'
+
+import coffes from '../../data/coffes'
 
 export function Home() {
   return (
@@ -57,12 +58,13 @@ export function Home() {
       <CoffesMenuContainer>
         <H2>Nossos Cafés</H2>
         <div className='coffes'>
-          <CoffeComponent
-            imgSrc={CoffeImage}
-            tags={['tradicional', 'com leite']}
-            title={'Expresso Tradicional'}
-            description={'O tradicional café feito com água quente e grãos moídos'}
-          />
+
+          {coffes.map(coffe => (
+            <CoffeComponent
+              key={coffe.id}
+              {...coffe}
+            />
+          ))}
         </div>
       </CoffesMenuContainer>
     </>

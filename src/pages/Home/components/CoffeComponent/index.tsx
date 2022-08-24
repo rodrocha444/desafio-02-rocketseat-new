@@ -4,15 +4,21 @@ import { ButtonAddToCart } from "../../../../components/Buttons";
 import { Select } from "../../../../components/Select";
 import { CoffeContainer, Subtitle, Title } from "./styles";
 
-type tags = 'tradicional' | 'com leite' | 'especial' | 'alcoólico' | 'gelado';
-interface CoffeProps {
-  imgSrc: string
-  tags: tags[]
-  title: string
-  description: string
-}
+import { CoffeProps } from '../../../../data/coffes';
+import { useState } from 'react';
+
 
 export function CoffeComponent({ imgSrc, tags, title, description }: CoffeProps) {
+  const [units, setUnits] = useState(1);
+
+  function decreaseUnits() {
+    setUnits(state => (state > 1) ? (state - 1) : state);
+  }
+
+  function incrementUnits() {
+    setUnits(state => state + 1)
+  }
+
   return (
     <CoffeContainer>
       <img src={imgSrc} alt="Imagem ilustrativa do Café" />
@@ -22,7 +28,7 @@ export function CoffeComponent({ imgSrc, tags, title, description }: CoffeProps)
       </div>
 
       <Title>{title}</Title>
-      <Subtitle>{description}</Subtitle>
+      <Subtitle >{description}</Subtitle>
 
       <div className="buy-details">
         <div>
@@ -37,7 +43,11 @@ export function CoffeComponent({ imgSrc, tags, title, description }: CoffeProps)
           />
         </div>
         <div className='cart-features'>
-          <Select />
+          <Select
+            counter={units}
+            decreaseUnits={decreaseUnits}
+            incrementUnits={incrementUnits}
+          />
           <ButtonAddToCart />
         </div>
       </div>

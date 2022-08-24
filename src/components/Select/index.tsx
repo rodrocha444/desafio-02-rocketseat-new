@@ -1,27 +1,21 @@
-import { useState } from "react";
-import NumberFormat from 'react-number-format'
+import { MinusStyled, NumberFormatStyled, PlusStyled, SelectContainer } from "./styles";
 
-import { MinusStyled, PlusStyled, SelectContainer } from "./styles";
+interface SelectProps {
+  counter: number
+  decreaseUnits: ()=>void
+  incrementUnits: ()=>void
+}
 
-export function Select() {
-  const [counter, setCounter] = useState(1);
-
-  function decreaseCounter() {
-    setCounter(state => (state > 1) ? (state - 1) : state);
-  }
-
-  function increaseCounter() {
-    setCounter(state => state + 1)
-  }
+export function Select(props: SelectProps) {
 
   return (
     <SelectContainer>
-      <MinusStyled size={14} weight={"bold"} onClick={decreaseCounter} />
-      <NumberFormat
+      <MinusStyled size={14} weight={"bold"} onClick={props.decreaseUnits} />
+      <NumberFormatStyled
         displayType="text"
-        value={counter}
+        value={props.counter}
       />
-      <PlusStyled size={14} weight={"bold"} onClick={increaseCounter} />
+      <PlusStyled size={14} weight={"bold"} onClick={props.incrementUnits} />
     </SelectContainer>
   )
 }
