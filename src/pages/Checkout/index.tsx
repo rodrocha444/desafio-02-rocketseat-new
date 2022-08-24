@@ -1,34 +1,81 @@
-import { CheckoutContainer } from "./styles";
+import { CheckoutContainer, Title } from "./styles";
 import NumberFormat from "react-number-format";
+import { SelectOption } from "../../components/SelectOption";
+import { Bank, CreditCard, Money, MapPinLine, CurrencyDollar } from "phosphor-react";
+import { DescriptionWithIcon } from "./components/DescriptionWithIcon";
 
 export function Checkout() {
   return (
     <CheckoutContainer>
       <form action="">
-        <div>
-          <h2>Complete seu pedido </h2>
+        <div className="infos">
+          <Title>Complete seu pedido</Title>
 
-          <div>
-            <span>icon</span>
-            <div>
-              <strong>Endereço de Entrega</strong>
-              <p>Informe o endereço onde deseja receber seu pedido</p>
+          <section className="address-and-pay">
+            <DescriptionWithIcon
+              iconColor="#C47F17"
+              Icon={<MapPinLine size={22} />}
+              title="Pagamento"
+              subtitle="O pagamento é feito na entrega. Escolha a forma que deseja pagar"
+            />
+            <div className="data">
+              <NumberFormat
+                displayType="input"
+                inputMode="text"
+                name=""
+                placeholder="CEP"
+                mask="_"
+                format="#####-###"
+                className="cep"
+              />
+              <input type="text" placeholder="Rua" className="rua" />
+              <input type="number" placeholder="Numero" className="numero" />
+              <input type="text" placeholder="Complemento" className="complemento" />
+              <input type="text" placeholder="Bairro" className="bairro" />
+              <input type="text" placeholder="Cidade" className="cidade" />
+              <input type="text" placeholder="UF" className="uf" maxLength={2} />
             </div>
 
-            <NumberFormat
-              displayType="input"
-              value={10}
-              inputMode="text"
-              name=""
+
+          </section>
+
+          <section className="address-and-pay">
+            <DescriptionWithIcon
+              iconColor="#8047F8"
+              Icon={<CurrencyDollar size={22} />}
+              title="Endereço de Entrega"
+              subtitle="Informe o endereço onde deseja receber seu pedido"
             />
+            <div className="options">
+              <SelectOption
+                icon={<CreditCard />}
+                onClick={() => { }}
+                selected={false}
+                textContent="Cartão de Crédito"
+              />
+              <SelectOption
+                icon={<Bank />}
+                onClick={() => { }}
+                selected={false}
+                textContent="Cartão de Débito"
+              />
+              <SelectOption
+                icon={<Money />}
+                onClick={() => { }}
+                selected={false}
+                textContent="Dinheiro"
+              />
+            </div>
+          </section>
+        </div>
 
+        <section className="cart">
+          <Title>Cafés selecionados</Title>
+          <div className="address-and-pay">
+            Café
+            Café
           </div>
-        </div>
-
-        <div>
-          <h2>Cafés selecionados</h2>
-
-        </div>
+        </section>
       </form>
 
     </CheckoutContainer>

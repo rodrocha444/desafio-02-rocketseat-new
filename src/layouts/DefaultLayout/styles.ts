@@ -22,6 +22,9 @@ export const Header = styled.header`
 
   & .logo{
     height: 2.5rem;
+    &:hover{
+      cursor: pointer;
+    }
   }
 
   & .location{
