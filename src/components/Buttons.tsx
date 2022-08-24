@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { ShoppingCart, Trash } from 'phosphor-react'
 
-const Button = styled("button")`
+const Button = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,7 +31,9 @@ export const ButtonLabel = styled(Button)`
 const RemoveButtonChildren = (color: string) => (
   <>
     <Trash size={20} color={color} weight='bold' />
-    REMOVER
+    <strong>
+      REMOVER
+    </strong>
   </>
 )
 
@@ -39,7 +41,7 @@ export const RemoveButton = styled(Button).attrs((props) => ({
   children: RemoveButtonChildren(props.theme.purple)
 }))`
   &:hover{
-    color: ${props => props.theme['base-subtitle']}
+    color: ${props => props.theme['base-subtitle']};
   }
 `
 

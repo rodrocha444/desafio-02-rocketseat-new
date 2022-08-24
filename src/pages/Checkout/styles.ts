@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ButtonLabel } from "../../components/Buttons";
 
 export const CheckoutContainer = styled.section`
   & > form{
@@ -96,4 +97,47 @@ export const Title = styled.h2`
   margin-bottom: 1rem;
   color: ${props => props.theme["base-subtitle"]};
 
+`
+export const Divider = styled.div`
+  height:2px;
+  width:100%;
+  background: ${props => props.theme["base-button"]};
+`
+
+export const TotalContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.75rem;
+
+  & > span{
+    display: flex;
+    justify-content: space-between;
+    
+  }
+
+  & .normalText *{
+      line-height: 130%;
+      color: ${props => props.theme["base-text"]};
+    }
+  & .especialText *{
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 130%;
+
+    color: ${props => props.theme["base-subtitle"]};
+  }
+  
+`
+
+export const ButtonLabelStyled = styled(ButtonLabel)`
+  width: 100%;  
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 160%;
+
+  text-transform: uppercase;
+
+  color: #FFFFFF;
+  font-stretch: 100;
 `

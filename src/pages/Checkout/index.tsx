@@ -1,8 +1,10 @@
-import { CheckoutContainer, Title } from "./styles";
+import { ButtonLabelStyled, CheckoutContainer, Divider, Title, TotalContainer } from "./styles";
 import NumberFormat from "react-number-format";
 import { SelectOption } from "../../components/SelectOption";
+import { ButtonLabel } from "../../components/Buttons";
 import { Bank, CreditCard, Money, MapPinLine, CurrencyDollar } from "phosphor-react";
 import { DescriptionWithIcon } from "./components/DescriptionWithIcon";
+import { CoffeCart } from "./components/CoffeCart";
 
 export function Checkout() {
   return (
@@ -72,8 +74,53 @@ export function Checkout() {
         <section className="cart">
           <Title>Cafés selecionados</Title>
           <div className="address-and-pay">
-            Café
-            Café
+            <CoffeCart srcImage="/src/assets/coffes-imgs/image.png" />
+            <Divider />
+            <CoffeCart srcImage="/src/assets/coffes-imgs/image.png" />
+            <Divider />
+
+            <TotalContainer>
+              <span className="normalText">
+                <p>Total de itens</p>
+                <NumberFormat
+                  decimalSeparator=','
+                  decimalScale={2}
+                  fixedDecimalScale={true}
+                  displayType='text'
+                  value={9.9}
+                  className='value'
+                  prefix="R$ "
+                />
+              </span>
+              <span className="normalText">
+                <p>Entrega</p>
+                <NumberFormat
+                  decimalSeparator=','
+                  decimalScale={2}
+                  fixedDecimalScale={true}
+                  displayType='text'
+                  value={9.9}
+                  className='value'
+                  prefix="R$ "
+                />
+              </span>
+              <span className="especialText">
+                <strong>Total</strong>
+                <NumberFormat
+                  decimalSeparator=','
+                  decimalScale={2}
+                  fixedDecimalScale={true}
+                  displayType='text'
+                  value={9.9}
+                  className='value'
+                  prefix="R$ "
+                />
+              </span>
+            </TotalContainer>
+            <ButtonLabelStyled>
+              Confirmar Pedido
+            </ButtonLabelStyled>
+
           </div>
         </section>
       </form>
