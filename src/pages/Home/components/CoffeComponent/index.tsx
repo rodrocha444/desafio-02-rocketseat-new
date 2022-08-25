@@ -5,11 +5,15 @@ import { Select } from "../../../../components/Select";
 import { CoffeContainer, Subtitle, Title } from "./styles";
 
 import { CoffeProps } from '../../../../data/coffes';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { CartContext } from '../../../../Router';
 
+interface CoffeComponent extends CoffeProps {
+}
 
-export function CoffeComponent({ imgSrc, tags, title, description }: CoffeProps) {
+export function CoffeComponent({ id, imgSrc, tags, title, description }: CoffeComponent) {
   const [units, setUnits] = useState(1);
+  const { addToCart } = useContext(CartContext)
 
   function decreaseUnits() {
     setUnits(state => (state > 1) ? (state - 1) : state);
@@ -48,7 +52,7 @@ export function CoffeComponent({ imgSrc, tags, title, description }: CoffeProps)
             decreaseUnits={decreaseUnits}
             incrementUnits={incrementUnits}
           />
-          <ButtonAddToCart />
+          <ButtonAddToCart onClick={() => addToCart(id, units)} />
         </div>
       </div>
     </CoffeContainer>

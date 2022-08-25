@@ -1,12 +1,15 @@
 import { ButtonLabelStyled, CheckoutContainer, Divider, Title, TotalContainer } from "./styles";
 import NumberFormat from "react-number-format";
 import { SelectOption } from "../../components/SelectOption";
-import { ButtonLabel } from "../../components/Buttons";
 import { Bank, CreditCard, Money, MapPinLine, CurrencyDollar } from "phosphor-react";
 import { DescriptionWithIcon } from "./components/DescriptionWithIcon";
 import { CoffeCart } from "./components/CoffeCart";
+import { CartContext } from "../../Router";
+import { useContext } from "react";
+import coffes from "../../data/coffes";
 
 export function Checkout() {
+  const { cart } = useContext(CartContext);
   return (
     <CheckoutContainer>
       <form action="">
@@ -74,9 +77,9 @@ export function Checkout() {
         <section className="cart">
           <Title>Cafés selecionados</Title>
           <div className="address-and-pay">
-            <CoffeCart srcImage="/src/assets/coffes-imgs/image.png" />
-            <Divider />
-            <CoffeCart srcImage="/src/assets/coffes-imgs/image.png" />
+            {cart.map(coffe => (
+              <CoffeCart {...coffe}/>
+            ))}
             <Divider />
 
             <TotalContainer>
@@ -117,7 +120,7 @@ export function Checkout() {
                 />
               </span>
             </TotalContainer>
-            <ButtonLabelStyled>
+            <ButtonLabelStyled onClick={(e)=>{e.preventDefault()}}>
               Confirmar Pedido
             </ButtonLabelStyled>
 

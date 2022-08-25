@@ -1,20 +1,29 @@
-import { HTMLProps } from 'react';
+import { useContext } from 'react';
 import { Select } from '../../../../components/Select';
 import { CoffeName, Container, NumberFormatStyled } from './styles';
 import { RemoveButton } from '../../../../components/Buttons'
+import { CartCoffeProps, CartContext } from '../../../../Router';
 
-interface CoffeCartProps extends HTMLProps<HTMLDivElement> {
-  srcImage: string
-}
-export function CoffeCart(props: CoffeCartProps) {
+export function CoffeCart({ id, imgSrc, title, units }: CartCoffeProps) {
+  const { addToCart } = useContext(CartContext)
+
+  function increaseUnits() {
+    addToCart(id, 1)
+  }
+
+  function decreaseUnits() {
+    if (units > 1) {
+      addToCart(id, -1)
+    }
+  }
   return (
     <Container>
       <div>
-        <img src={props.srcImage} alt="imagem ilustrativa do café selecionado" />
+        <img src={imgSrc} alt="imagem ilustrativa do café selecionado" />
         <div>
-          <CoffeName>Expresso Tradicional</CoffeName>
+          <CoffeName>{title}</CoffeName>
           <span>
-            <Select />
+            <Select counter={units} incrementUnits={increaseUnits} decreaseUnits={decreaseUnits} />
             <RemoveButton />
           </span>
         </div>

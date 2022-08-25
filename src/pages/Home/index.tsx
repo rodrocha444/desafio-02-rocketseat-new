@@ -6,8 +6,11 @@ import { CoffeComponent } from './components/CoffeComponent'
 import { CoffesMenuContainer, CoverContainer, FeaturesDiv, H2, Icon, Subtitle, Title } from './styles'
 
 import coffes from '../../data/coffes'
+import { useContext } from 'react'
+import { CartContext } from '../../Router'
 
 export function Home() {
+  
   return (
     <>
       <CoverContainer>
